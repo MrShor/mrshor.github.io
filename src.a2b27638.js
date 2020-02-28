@@ -3604,49 +3604,47 @@ var _glide = _interopRequireDefault(require("@glidejs/glide"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-new _glide.default('.glide').mount();
+new _glide.default(".glide").mount();
 
-var headMenuSwitcher = function headMenuSwitcher() {
-  document.getElementById('logo-menu').addEventListener('click', function () {
+(function () {
+  var getEmailInput = document.getElementById("email-input");
+  document.getElementById("logo-menu").addEventListener("click", function () {
     if (window.innerWidth < 800) {
-      document.getElementById('header-nav').classList.toggle('open');
+      document.getElementById("header-nav").classList.toggle("open");
     }
   });
-};
-
-headMenuSwitcher();
-
-var setEmailValidation = function setEmailValidation() {
-  document.getElementById('submit-button').addEventListener('click', function (e) {
+  document.getElementById("submit-button").addEventListener("click", function (e) {
     e.preventDefault();
-    changeMsgError(document.getElementById('email-input').value);
+    changeMsgError(getEmailInput.value);
   });
-  document.getElementById('email-input').addEventListener('input', function () {
-    changeMsgError(document.getElementById('email-input').value);
+  document.getElementById("email-input").addEventListener("input", function () {
+    changeMsgError(getEmailInput.value);
   });
 
   function changeMsgError(email) {
-    var errorMsg = document.getElementById('email-err');
+    var errorMsg = document.getElementById("email-err");
 
     if (checkValidEmail(email)) {
-      errorMsg.style.display = 'none';
-      errorMsg.textContent = '';
-    } else if (email === '') {
-      errorMsg.textContent = 'Enter your email address';
-      errorMsg.style.display = 'block';
-    } else {
-      errorMsg.textContent = 'Enter a valid email address';
-      document.getElementById('email-err').style.display = 'block';
+      errorMsg.style.display = "none";
+      errorMsg.textContent = "";
+      return false;
     }
+
+    if (email === "") {
+      errorMsg.textContent = "Enter your email address";
+      errorMsg.style.display = "block";
+      return false;
+    }
+
+    errorMsg.textContent = "Enter a valid email address";
+    errorMsg.style.display = "block";
   }
 
   function checkValidEmail(email) {
     var reg = /(?!.*\.{2})^([a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+(\.[a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+)*|"((([ \t]*\r\n)?[ \t]+)?([\x01-\x08\x0b\x0c\x0e-\x1f\x7f\x21\x23-\x5b\x5d-\x7e\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|\\[\x01-\x09\x0b\x0c\x0d-\x7f\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))*(([ \t]*\r\n)?[ \t]+)?")@(([a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.)+([a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.?$/i;
-    return reg.test(String(email).toLowerCase());
+    return reg.test(email.toLowerCase());
   }
-};
-
-setEmailValidation();
+})();
 },{"@glidejs/glide":"node_modules/@glidejs/glide/dist/glide.esm.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -3675,7 +3673,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62701" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54155" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
